@@ -6,11 +6,11 @@
 
 **Overview** :
 
-1. **Spring Boot** : Develops REST endpoints to retrieve and modify data stored in a MySQL database.
-2. **MySQL Database** : Manages and stores customer details, Aadhar card information, and PAN card data.
-3. **Eureka Server** : Registers all autonomous microservices to facilitate effective communication.
-4. **OpenFeign** : Integrates data retrieval from AadharCard Service and PanCard Service into Customer Service.
-5. **Resilience4j** : Implements circuit breaker to isolate service interruptions and protect other services.
+1. **Spring Boot** : Develops REST endpoints to retrieve and modify data stored in a MySQL database
+2. **MySQL Database** : Manages and stores customer details, Aadhar card information, and PAN card data
+3. **Eureka Server** : Registers all autonomous microservices to facilitate effective communication
+4. **OpenFeign** : Integrates data retrieval from AadharCard Service and PanCard Service into Customer Service
+5. **Resilience4j** : Implements circuit breaker to isolate service interruptions and protect other services
 
 **API Documentation** :
 
