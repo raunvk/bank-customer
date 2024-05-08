@@ -1,6 +1,6 @@
 # bank-customer-services
 
-**Description** : Application to validate Bank Customer KYC details
+**Description** : Application to validate Bank Customer KYC Details
 
 **Tech Stack** : Spring Boot, MySQL, Eureka Server, OpenFeign, Resilience4j
 
