@@ -24,34 +24,46 @@ public class AadharController {
 	@Autowired
 	AadharService service;
 	
-	@PostMapping
+	@PostMapping("/add")
 	public ResponseEntity<String> addAadhar(@RequestBody Aadhar aadhar) {
 		String aadharNo = service.addAadhar(aadhar);
 		return new ResponseEntity<String>("Aadhar Card Successfully Added with Aadhar No. " + aadharNo, HttpStatus.OK);
 	}
 	
-	@GetMapping("/find/{aadharNo}")
+	@GetMapping("/{aadharNo}")
 	public ResponseEntity<Aadhar> findAadharByAadharNo(@PathVariable String aadharNo) {
 		Aadhar aadhar = service.findAadharByAadharNo(aadharNo);
 		return new ResponseEntity<Aadhar>(aadhar, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{aadharNo}")
+	@GetMapping("/find/{aadharNo}")
 	public ResponseEntity<Optional<Aadhar>> findAadharByAadharNo2(@PathVariable String aadharNo) {
 		Optional<Aadhar> aadhar = service.findAadharByAadharNo2(aadharNo);
 		return new ResponseEntity<Optional<Aadhar>>(aadhar, HttpStatus.OK);
 	}
 	
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<Aadhar>> findAllAadhar() {
 		List<Aadhar> aadhar = service.findAllAadhar();
 		return new ResponseEntity<List<Aadhar>>(aadhar, HttpStatus.OK);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("/delete")
 	public ResponseEntity<String> deleteAadharByAadharNo(@RequestBody Aadhar aadhar) {
 		service.delAadharByAadharNo(aadhar);
 		return new ResponseEntity<String>("Aadhar Card has been Successfully Deleted", HttpStatus.OK);
 	}	
+	
+	@DeleteMapping("/delete/{aadharNo}")
+	public ResponseEntity<String> deleteAadharByAadharNo2(@PathVariable String aadharNo) {
+		service.delAadharByAadharNo2(aadharNo);
+		return new ResponseEntity<String>("Aadhar Card has been Successfully Deleted", HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/delete/all")
+	public ResponseEntity<String> deleteAllAadhar() {
+		service.delAllAadhar();
+		return new ResponseEntity<String>("All Aadhar Card Details have been Successfully Deleted", HttpStatus.OK);
+	}
 
 }

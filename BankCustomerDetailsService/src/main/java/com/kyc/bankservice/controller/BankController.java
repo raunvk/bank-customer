@@ -24,28 +24,34 @@ public class BankController {
 	@Autowired
 	BankService service;
 	
-	@PostMapping
+	@PostMapping("/add")
 	public ResponseEntity<String> addCustomer(@RequestBody Customer customer){
 		int accNo = service.addCustomer(customer);
 		return new ResponseEntity<String>("Customer Successfully Added with Account No. " + accNo, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{accNo}")
-	public ResponseEntity<Optional<Customer>> findCustomerByAccNo(@PathVariable int accNo){
-		Optional<Customer> customer = service.findCustomerByAccNo(accNo);
-		return new ResponseEntity<Optional<Customer>>(customer, HttpStatus.OK);
-	}
-	
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<Customer>> findAllCustomers(){
 		List<Customer> customer = service.findAllCustomers();
 		return new ResponseEntity<List<Customer>>(customer, HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{accNo}")
+	@GetMapping("/find/{accNo}")
+	public ResponseEntity<Optional<Customer>> findCustomerByAccNo(@PathVariable int accNo){
+		Optional<Customer> customer = service.findCustomerByAccNo(accNo);
+		return new ResponseEntity<Optional<Customer>>(customer, HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/delete/{accNo}")
 	public ResponseEntity<String> deleteCustomerByAccNo(@PathVariable int accNo){
-		service.delCustomerByCode(accNo);
+		service.delCustomerByAccNo(accNo);
 		return new ResponseEntity<String>("Customer has been Successfully Deleted", HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/delete/all")
+	public ResponseEntity<String> deleteAllCustomers(){
+		service.delAllCustomers();
+		return new ResponseEntity<String>("All Customer Details have been Successfully Deleted", HttpStatus.OK);
 	}
 	
 	@GetMapping("/kyc/{accNo}/{aadharNo}")

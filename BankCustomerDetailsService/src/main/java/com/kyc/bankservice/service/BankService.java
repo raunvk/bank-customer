@@ -11,7 +11,8 @@ public interface BankService {
 	int addCustomer(Customer customer);
 	List<Customer> findAllCustomers();
 	Optional<Customer> findCustomerByAccNo(int accountNo);
-	void delCustomerByCode(int accountNo);
+	void delAllCustomers();
+	void delCustomerByAccNo(int accountNo);
 	void knowYourCustomer(int accountNo, String aadharNo);
 	void validatePanCard(int accountNo, String panNo);
 }

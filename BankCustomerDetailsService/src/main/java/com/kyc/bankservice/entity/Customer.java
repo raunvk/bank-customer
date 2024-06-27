@@ -15,13 +15,13 @@ public class Customer {
 	@Id
 	@Column(length=10)
 	private int accountNo;
-	@Column(length=20)
+	@Column(length=30)
 	private String firstName;
-	@Column(length=20)
+	@Column(length=30)
 	private String lastName;
 	@Column(length=10)
 	private String mobile;
-	@Column(length=20)
+	@Column(length=30)
 	private String email;
 		
 	@Autowired

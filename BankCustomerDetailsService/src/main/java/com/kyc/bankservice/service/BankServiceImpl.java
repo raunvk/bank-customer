@@ -130,9 +130,14 @@ public class BankServiceImpl implements BankService {
 		}
 		return cust;
 	}
+	
+	@Override
+	public void delAllCustomers() {
+		repo.deleteAll();
+	}
 
 	@Override
-	public void delCustomerByCode(int accountNo) {
+	public void delCustomerByAccNo(int accountNo) {
 		Optional<Customer> cust = repo.findById(accountNo);
 		if(cust.isEmpty()) {
 			throw new AccountNotFoundException();
@@ -213,6 +218,5 @@ public class BankServiceImpl implements BankService {
 		cust.setPanRemarks("PAN VALIDATION APPROVED");
 		
 		repo.save(cust);
-		
 	}
 }

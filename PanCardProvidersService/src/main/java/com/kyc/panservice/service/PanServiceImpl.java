@@ -57,4 +57,18 @@ public class PanServiceImpl implements PanService {
 		}
 		repo.delete(pan);
 	}
+
+	@Override
+	public void delPanByPanNo2(String panNo) {
+		Optional<Pan> pan1 = repo.getPanByPanNo2(panNo);
+		if(pan1.isEmpty()) {
+			throw new PanCardNotFoundException();
+		}
+		repo.deleteById(panNo);
+	}
+
+	@Override
+	public void delAllPan() {
+		repo.deleteAll();
+	}
 }

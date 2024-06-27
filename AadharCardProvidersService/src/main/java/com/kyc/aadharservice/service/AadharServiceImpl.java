@@ -60,5 +60,19 @@ public class AadharServiceImpl implements AadharService {
 		}
 		repo.delete(aadhar);
 	}
+
+	@Override
+	public void delAadharByAadharNo2(String aadharNo) {
+		Optional<Aadhar> aadhar1 = repo.getAadharByAadharNo2(aadharNo);
+		if(aadhar1.isEmpty()) {
+			throw new AadharCardNotFoundException();
+		}
+		repo.deleteById(aadharNo);
+	}
+
+	@Override
+	public void delAllAadhar() {
+		repo.deleteAll();
+	}
 	
 }
